@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faiza | CS Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+      // Apply the saved preference before the page paints.
+      try {
+        const saved = localStorage.getItem('faiza-theme');
+        document.documentElement.dataset.theme =
+          saved === 'dark' || saved === 'light'
+            ? saved
+            : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      } catch (e) { /* Default to light if storage is blocked. */ }
+    </script>
+    <!-- Hero layout refinements: self-contained so style.css and script.js remain unchanged -->
+    <style>
+      #hero { min-height: 100svh; height: auto; padding: 110px 8% 110px; }
+      #hero .hero-main-content { position: relative; z-index: 3; width: min(100%, 1050px); }
+      #hero .hero-text-group { width: 100%; min-width: 0; }
+      #hero .hero-name-container { padding-left: 0; margin-bottom: 0; align-items: flex-start; }
+      #hero .hero-side-label {
+        position: static; display: flex; flex-direction: row; align-items: center;
+        writing-mode: horizontal-tb; transform: none; border: 0; padding: 0;
+        margin-bottom: 22px; gap: 12px; font-size: .68rem; letter-spacing: .16em;
+      }
+      #hero .hero-side-label .label-line { width: 25px; height: 1px; }
+      #hero .hero-code-header { margin-bottom: 12px; font-size: clamp(.8rem, 1.5vw, 1rem); }
+      #hero .name-lockup { width: 100%; max-width: 100%; }
+      #hero .main-name {
+        font-size: clamp(2.5rem, 6.1vw, 5.4rem); line-height: 1.16;
+        letter-spacing: -.045em; white-space: normal; overflow-wrap: normal;
+      }
+      #hero .hero-subtitle {
+        font-size: clamp(.65rem, 1.15vw, .83rem);
+        letter-spacing: clamp(2px, .42vw, 5px); margin: 16px 0 42px;
+      }
+      #hero .rotating-text-row {
+        display: flex; flex-wrap: wrap; align-items: baseline;
+        gap: 8px 16px; font-size: clamp(1.25rem, 2.6vw, 2rem);
+        line-height: 1.3; margin-bottom: 36px;
+      }
+      #hero .static-prefix { flex-shrink: 0; }
+      #hero .text-window { max-width: 100%; height: 1.2em; }
+      #hero .text-strip span { line-height: 1.2em; }
+      @media (max-width: 768px) {
+        #hero { padding: 105px 7% 100px; text-align: left; justify-content: flex-start; }
+        #hero .hero-name-container { align-items: flex-start; }
+        #hero .hero-side-label { display: flex; }
+        #hero .rotating-text-row { justify-content: flex-start; }
+        #hero .hero-editorial-links { align-items: flex-start; }
+        #hero .hero-annotation { display: none; }
+        #hero .main-name { font-size: clamp(2.2rem, 8vw, 4rem); }
+      }
+      @media (max-width: 440px) {
+        #hero .main-name { font-size: clamp(2rem, 8.4vw, 2.8rem); }
+        #hero .rotating-text-row { font-size: 1.25rem; }
+        #hero .hero-subtitle { letter-spacing: 2px; }
+      }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">faizorithm</div>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+            <span class="theme-icon" aria-hidden="true">☾</span>
+            <span class="theme-label">Dark mode</span>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#playground">Playground ✦</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- REDESIGNED EDITORIAL HERO SECTION -->
+    <section id="hero">
+        <!-- Background Decorative Elements -->
+        <div class="hero-blob"></div>
+        <div class="hero-sparkle s1">✦</div>
+        <div class="hero-sparkle s2">✦</div>
+        <div class="hero-sparkle s3">✦</div>
+        
+        <!-- Floating Academic Research Note -->
+        <div class="hero-research-note">
+            <div class="hero-note-header">Note #01</div>
+            <p>Research Focus: Human-Centered AI & Decision Analytics for Fall '27</p>
+            <div class="hero-note-footer">Notes from my curiosity journal</div >
+        </div>
+
+        <div class="hero-main-content">
+            <div class="hero-text-group">
+                <!-- IMPRESSIVE LAYERED TITLE -->
+            
+                
+                    <!-- The Computing Accent -->
+                    <div class="hero-code-header">
+                        <span class="code-text">print("Hello World")</span><span class="cursor">_</span>
+                    </div>
+                    
+                    <!-- Layered Brand Title -->
+                   
+                    <div class="name-lockup">
+                        <h1 class="main-name">
+                        <span id="typing-name"></span><span class="typing-cursor">|</span>
+                        </h1>
+                    </div>
+
+                </div>
+                
+                
+                <!-- SUBTITLE FOR CONTEXT -->
+                <p class="hero-subtitle">COMPUTING & CREATIVITY</p>
+            
+                <div class="rotating-text-row">
+                    <span class="static-prefix">a little bit of everything:</span>
+                    <div class="text-window">
+                        <div class="text-strip">
+                            <span>developer 💻</span>
+                            <span>data enthusiast 📊</span>
+                            <span>AI explorer 🤖</span>
+                            <span>creative thinker 🎨</span>
+                            <span>problem solver 🧩</span>
+                            <span>lifelong learner 🌱</span>
+                            <span>developer 💻</span>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="hero-editorial-links">
+                    <a href="#about" class="ed-link">About Me <span class="arrow">→</span></a>
+                    <a href="#projects" class="ed-link">Explore My Work <span class="arrow">→</span></a>
+                    <a href="#playground" class="ed-link">Play a Little Game <span class="arrow">✦</span></a>
+                    <a href="#experience" class="ed-link">My experience <span class="arrow">→</span></a>
+                    <a href="#contact" class="ed-link">Get in Touch <span class="arrow">→</span></a>
+                </div>
+            </div>            
+        </div>
+
+        <!-- Handwritten Annotation -->
+        <!-- Personal Philosophy Marquee -->
+<div class="hero-marquee">
+    <div class="marquee-track">
+  
+      <div class="marquee-content">
+        <span>understand what exists.</span>
+        <span class="marquee-star">✦</span>
+        <span>question what doesn't work.</span>
+        <span class="marquee-star">✦</span>
+        <span>build what could be.</span>
+        <span class="marquee-star">✦</span>
+      </div>
+  
+      <!-- Duplicate for seamless scrolling -->
+      <div class="marquee-content" aria-hidden="true">
+        <span>understand what exists.</span>
+        <span class="marquee-star">✦</span>
+        <span>question what doesn't work.</span>
+        <span class="marquee-star">✦</span>
+        <span>build what could be.</span>
+        <span class="marquee-star">✦</span>
+      </div>
+  
+    </div>
+  </div>
+
+        <!-- Subtle Scroll Indicator -->
+        <div class="hero-scroll-indicator">
+            <div class="scroll-line"></div>
+            <span>scroll</span>
+        </div>
+        
+        <!-- Vintage Paper Texture Overlay -->
+        <div class="paper-texture"></div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+   
+<!-- ABOUT ME SECTION -->
+<section id="about" class="about-section">
+    <div class="about-container">
+  
+      <div class="about-heading">
+        <span class="about-eyebrow">01 / THE PERSON BEHIND THE CODE</span>
+        <h2 class="about-title">A little <em>about me.</em></h2>
+        <div class="about-heading-line"></div>
+      </div>
+  
+      <div class="about-grid">
+  
+        <!-- Left: Editorial details -->
+        <div class="about-sidebar">
+          
+  
+          <div class="about-detail">
+            <span class="about-detail-label">CURRENTLY</span>
+            <p>Database Adminstration Intern @ DOHMH</p>
+          </div>
+  
+          <div class="about-detail">
+            <span class="about-detail-label">STUDYING AT</span>
+            <p>CUNY Hunter College</p>
+          </div>
+  
+          <div class="about-detail">
+            <span class="about-detail-label">GRADUATING</span>
+            <p>May 2027</p>
+          </div>
+  
+          <div class="about-detail">
+            <span class="about-detail-label">INTERESTED IN</span>
+            <p>Internships · Full-time Roles · Design · Development</p>
+          </div>
+  
+          <div class="about-sidebar-decoration">✳</div>
+        </div>
+  
+        <!-- Right: Personal introduction -->
+        <div class="about-story">
+          <p class="about-intro">
+            Hi, I'm <span>Faiza.</span>
+          </p>
+  
+          <p>
+            I'm a Computer Science student at
+            <strong>CUNY Hunter College</strong>, graduating in
+            <strong>May 2027</strong>.
+          </p>
+  
+          <p>
+            I'm drawn to the intersection of technology, creativity,
+            and human experience. My interests span artificial
+            intelligence, data science, software development, and
+            design, but what connects them is a desire to understand
+            how things work, question how they could work better,
+            and turn ideas into something meaningful.
+          </p>
+  
+          <p>
+            Whether I'm exploring patterns in data, developing
+            applications, or experimenting with design, I approach
+            each project with curiosity and a willingness to learn.
+            I'm especially interested in how emerging technologies
+            can be designed thoughtfully to solve real problems
+            and improve the way people interact with the world
+            around them.
+          </p>
+  
+          <p>
+            For me, computer science isn't just about writing code.
+            It's about understanding possibilities and building
+            toward them.
+          </p>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+
+    <!-- PROJECTS SECTION -->
+  
+<!-- SELECTED WORK -->
+<section id="projects" class="reveal">
+    <div class="works-container">
+  
+      <div class="works-header">
+        <div>
+          <span class="works-eyebrow">02 / THINGS I'VE BUILT & EXPLORED</span>
+          <h2 class="works-title">Selected <em>Work.</em></h2>
+        </div>
+        <p class="works-header-note">
+          A collection of questions, experiments, and ideas
+          that turned into something real.
+        </p>
+      </div>
+  
+      <div class="works-list">
+  
+        <!-- PROJECT 01 -->
+        <article class="work-item">
+          <div class="work-number">01 /</div>
+  
+          <div class="work-main">
+            <span class="work-category">MACHINE LEARNING · DATA SCIENCE</span>
+            <h3>Is Your Salary Safe from AI?</h3>
+            <p>
+              Exploring how artificial intelligence and automation
+              intersect with salaries, occupations, and the changing
+              landscape of work through machine learning and data.
+            </p>
+            <div class="work-tags">
+              <span>Python</span>
+              <span>Scikit-learn</span>
+              <span>Data Analysis</span>
+            </div>
+          </div>
+  
+          <div class="work-action">
+            <a href="https://github.com/faizorithm/ai_jobs_project" target="_blank" rel="noopener noreferrer"
+               aria-label="View Is Your Salary Safe from AI project">↗</a>
+          </div>
+        </article>
+  
+        <!-- PROJECT 02 -->
+        <article class="work-item">
+          <div class="work-number">02 /</div>
+  
+          <div class="work-main">
+            <span class="work-category">DATA VISUALIZATION · ANALYTICS</span>
+            <h3>NYC Restaurant Analytics</h3>
+            <p>
+              An interactive Power BI dashboard exploring New York City's
+              restaurant inspection data, revealing trends and patterns
+              through visual storytelling.
+            </p>
+            <div class="work-tags">
+              <span>Power BI</span>
+              <span>DAX</span>
+              <span>Data Visualization</span>
+            </div>
+          </div>
+  
+          <div class="work-action">
+            <a href="YOUR_PROJECT_URL" target="_blank" rel="noopener noreferrer"
+               aria-label="View NYC Restaurant Analytics project">↗</a>
+          </div>
+        </article>
+  
+        <!-- PROJECT 03 -->
+        <article class="work-item">
+          <div class="work-number">03 /</div>
+  
+          <div class="work-main">
+            <span class="work-category">WEB DEVELOPMENT · SOCIAL IMPACT</span>
+            <h3>FeedForward</h3>
+            <p>
+              A food redistribution platform designed to connect
+              businesses, volunteers, and recipients to help reduce
+              food waste and improve access to resources.
+            </p>
+            <div class="work-tags">
+              <span>React</span>
+              <span>Vite</span>
+              <span>Frontend Development</span>
+            </div>
+          </div>
+  
+          <div class="work-action">
+            <a href="https://github.com/moriamislam7423/FeedForward" target="_blank" rel="noopener noreferrer"
+               aria-label="View FeedForward project">↗</a>
+          </div>
+        </article>
+  
+        <!-- PROJECT 04 -->
+        <article class="work-item">
+          <div class="work-number">04 /</div>
+  
+          <div class="work-main">
+            <span class="work-category">WEB DEVELOPMENT · LEADERSHIP</span>
+            <h3>Women in Computer Science</h3>
+            <p>
+              Leading the development of Hunter College's WiCS website,
+              creating a digital space for events, resources, and
+              community engagement.
+            </p>
+            <div class="work-tags">
+              <span>Next.js</span>
+              <span>Tailwind CSS</span>
+              <span>UI/UX</span>
+            </div>
+          </div>
+  
+          <div class="work-action">
+            <a href="https://wics-website.vercel.app/" target="_blank" rel="noopener noreferrer"
+               aria-label="View WiCS website project">↗</a>
+          </div>
+        </article>
+  
+      </div>
+  
+      <div class="works-footer">
+        <span>MORE IDEAS ARE ALWAYS IN PROGRESS.</span>
+        <a href="https://github.com/faizorithm"
+           target="_blank" rel="noopener noreferrer">
+          EXPLORE MY GITHUB ↗
+        </a>
+      </div>
+  
+    </div>
+  </section>
+  
+
+    <!-- EXPERIENCE SECTION -->
+  
+<!-- EXPERIENCE SECTION -->
+
+<!-- INTERACTIVE EXPERIENCE SECTION -->
+<section id="experience" class="reveal">
+    <div class="experience-container">
+  
+      <div class="experience-header">
+        <span class="experience-eyebrow">03 / THE JOURNEY SO FAR</span>
+        <h2 class="experience-title">My <em>Experience.</em></h2>
+        <p class="experience-subtitle">
+          A few places I've learned, built, and grown.
+          Select a chapter to explore.
+        </p>
+      </div>
+  
+      <div class="experience-interactive">
+  
+        <!-- Clickable timeline -->
+        <div class="experience-nav" aria-label="Experience timeline">
+  
+          <button class="experience-tab active"
+                  type="button" data-experience="0"
+                  aria-pressed="true">
+            <span class="experience-tab-date">2026 — PRESENT</span>
+            <span class="experience-tab-role">Database Administrator Intern</span>
+            <span class="experience-tab-org">NYC Department of Health</span>
+          </button>
+  
+          <button class="experience-tab"
+                  type="button" data-experience="1"
+                  aria-pressed="false">
+            <span class="experience-tab-date">2026 — PRESENT</span>
+            <span class="experience-tab-role">Technical Lead</span>
+            <span class="experience-tab-org">Hunter College · WiCS</span>
+          </button>
+  
+          <button class="experience-tab"
+                  type="button" data-experience="2"
+                  aria-pressed="false">
+            <span class="experience-tab-date">JUN — AUG 2024</span>
+            <span class="experience-tab-role">
+              Workplace Technology Innovation &amp; Engineering Intern
+            </span>
+            <span class="experience-tab-org">Voya Financial</span>
+          </button>
+  
+          <button class="experience-tab"
+                  type="button" data-experience="3"
+                  aria-pressed="false">
+            <span class="experience-tab-date">OCT 2023 — JUN 2024</span>
+            <span class="experience-tab-role">Developer</span>
+            <span class="experience-tab-org">Google Code Next</span>
+          </button>
+  
+        </div>
+  
+        <!-- Content panel -->
+        <div class="experience-panel" aria-live="polite">
+          <span class="experience-panel-index" id="exp-index">
+            EXPERIENCE / 01
+          </span>
+  
+          <span class="experience-panel-type" id="exp-type">
+            DATABASE ADMINISTRATION · INFRASTRUCTURE
+          </span>
+  
+          <h3 id="exp-role">Database Administrator Intern</h3>
+          <h4 id="exp-org">NYC Department of Health</h4>
+  
+          <p id="exp-description">
+            Performing SQL Server patch installations through Remote Desktop
+            across development, pre-production, staging, and production
+            environments within a 50+ server infrastructure. Monitoring
+            SQL Server Agent job failures, notifying the appropriate
+            technical teams, and performing database backup and
+            restoration procedures.
+          </p>
+  
+          <div class="experience-panel-tags" id="exp-tags">
+            <span>Microsoft SQL Server</span>
+            <span>RDP</span>
+            <span>Server Patching</span>
+            <span>SQL Server Agent</span>
+            <span>Backup &amp; Restore</span>
+          </div>
+  
+          <div class="experience-panel-footer">
+            <span>SELECT A CHAPTER TO EXPLORE</span>
+            <span id="exp-count">01 / 04</span>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+
+
+
+    <!-- BEYOND THE CODE: INTERACTIVE ZIP-INSPIRED HOBBY GAME -->
+    <section id="playground" class="playground-section">
+      <div class="playground-heading">
+        <p class="playground-eyebrow">INSPIRED BY MY FAVORITE LINKEDIN GAME: ZIP</p>
+        <h2>Beyond <em>the Code.</em> <span aria-hidden="true">✳</span></h2>
+        <p>Ten little things that make me, me. Follow the trail and discover them along the way.</p>
+      </div>
+      <div class="game-layout">
+        <div class="game-panel">
+          <div class="game-topline"><span>THE CURIOSITY TRAIL</span><span id="game-progress">0 / 64 SQUARES</span></div>
+          <div class="game-board" id="game-board" role="group" aria-label="Path puzzle with ten numbered checkpoints"></div>
+          <div class="game-controls">
+            <span id="game-status" role="status" aria-live="polite">Start at 1. Visit every square, and reach 10 last.</span>
+            <div class="game-buttons"><button id="game-undo" type="button">↶ Undo</button><button id="game-reset" type="button">Reset</button><button id="game-new" type="button">New layout ↗</button></div>
+          </div>
+        </div>
+        <aside class="discovery-panel" aria-live="polite">
+          <p class="discovery-kicker" id="discovery-kicker">A NOTE FROM FAIZA · 00 / 10</p>
+          <div class="discovery-sticker" id="discovery-emoji" aria-hidden="true">✉️</div>
+          <h3 id="discovery-title">There's more to me than code.</h3>
+          <p id="discovery-description">Draw your path through the numbered checkpoints to reveal ten of my favorite things. Each stop opens a little page from my world.</p>
+          <div class="discovery-divider"></div>
+          <p class="discovery-collection-title">YOUR DISCOVERIES</p>
+          <div class="discovery-collection" id="discovery-collection" aria-label="Unlocked hobbies"></div>
+          <p class="game-howto">HOW TO PLAY ✦ Start at 1, connect checkpoints in order, and fill every square. Move up, down, left, or right—never diagonally. Drag, or tap adjacent squares. Backtrack to undo.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+   <!-- CONTACT SECTION -->
+<section id="contact" class="reveal">
+    <h2 class="section-title">Let's Collaborate!</h2>
+
+    <p>Currently seeking opportunities to build the future of AI.</p>
+
+    <div class="contact-links">
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=faizasarker123@gmail.com">Email </a>
+
+        <a href="https://github.com/faizorithm"
+           target="_blank"
+           rel="noopener noreferrer">
+            GitHub
+        </a>
+
+        <a href="https://www.linkedin.com/in/faizasarker/"
+           target="_blank"
+           rel="noopener noreferrer">
+            LinkedIn
+        </a>
+    </div>
+</section>
+
+
+    <script src="script.js"></script>
+    <p class="footer-copyright">
+        © 2026 Faiza Sarker. All rights reserved.
+      </p>
+</body>
+</html>
