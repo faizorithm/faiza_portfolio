@@ -1584,3 +1584,49 @@ html[data-theme="dark"] .paper-texture { opacity: .025; }
     color: #E8D9D1;
   }
   
+/* ==========================================
+   CENTER ALL SECTION HEADINGS
+   ========================================== */
+
+/* ABOUT ME */
+.about-heading {
+    text-align: center;
+}
+
+.about-title {
+    text-align: center;
+}
+
+/* SELECTED WORK */
+.works-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+}
+
+.works-title {
+    text-align: center;
+}
+
+.works-header-note {
+    max-width: 550px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* MY EXPERIENCE */
+.experience-header {
+    text-align: center;
+}
+
+.experience-title {
+    text-align: center;
+}
+
+.experience-subtitle {
+    max-width: 550px;
+    margin: 15px auto 0;
+    text-align: center;
+}
