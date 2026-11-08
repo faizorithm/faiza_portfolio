@@ -1630,3 +1630,59 @@ html[data-theme="dark"] .paper-texture { opacity: .025; }
     margin: 15px auto 0;
     text-align: center;
 }
+
+/* ==========================================
+   CLEANER SECTION SPACING
+   ========================================== */
+
+/* Reduce empty space between sections */
+#about,
+#projects,
+#experience,
+#contact {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.playground-section {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+/* About heading to content */
+.about-heading {
+    margin-bottom: 35px;
+}
+
+/* Selected Work heading to project list */
+.works-header {
+    margin-bottom: 35px;
+}
+
+/* Experience heading to timeline */
+.experience-interactive {
+    margin-top: 30px;
+}
+
+/* Reduce spacing within project rows */
+.work-item {
+    padding-top: 28px;
+    padding-bottom: 28px;
+}
+
+/* Reduce space before project footer */
+.works-footer {
+    margin-top: 25px;
+}
+
+/* Mobile spacing */
+@media (max-width: 768px) {
+    #about,
+    #projects,
+    #experience,
+    #contact,
+    .playground-section {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+}
