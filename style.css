@@ -1686,3 +1686,194 @@ html[data-theme="dark"] .paper-texture { opacity: .025; }
         padding-bottom: 50px;
     }
 }
+
+
+/* THE THINKING ATELIER — THOUGHT BUBBLE */
+
+.hero-research-note.thought-bubble {
+  position: absolute;
+  top: 17%;
+  right: 8%;
+  width: 310px;
+  padding: 38px 30px;
+  background: #fffaf3;
+  border: 2px solid #650f25;
+  border-radius: 48% 52% 46% 54% / 45% 48% 52% 55%;
+  box-shadow: 7px 9px 0 rgba(177, 138, 69, 0.25);
+  text-align: center;
+  transform: none;
+  animation: thoughtFloat 5s ease-in-out infinite;
+  z-index: 5;
+  overflow: visible;
+}
+
+.thought-label {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #b18a45;
+  margin-bottom: 18px;
+}
+
+.thought-bubble h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #650f25;
+  margin-bottom: 15px;
+}
+
+.thought-bubble h3 em {
+  color: #9e2638;
+  font-weight: 400;
+}
+
+.hero-research-note.thought-bubble p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.73rem;
+  line-height: 1.7;
+  color: #604434;
+  margin-bottom: 20px;
+}
+
+.thought-link {
+  display: inline-block;
+  color: #650f25;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-decoration: none;
+  border-bottom: 1px solid #b18a45;
+  padding-bottom: 5px;
+}
+
+.thought-link:hover {
+  color: #b18a45;
+}
+
+/* Three floating thought circles */
+
+.thought-circle {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  background: #fffaf3;
+  border: 2px solid #650f25;
+}
+
+.circle-one {
+  width: 26px;
+  height: 26px;
+  bottom: -22px;
+  left: 43px;
+}
+
+.circle-two {
+  width: 15px;
+  height: 15px;
+  bottom: -42px;
+  left: 25px;
+}
+
+.circle-three {
+  width: 8px;
+  height: 8px;
+  bottom: -55px;
+  left: 13px;
+}
+
+/* Gentle floating animation */
+
+@keyframes thoughtFloat {
+  0%, 100% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-10px);
+  }
+}
+
+/* Dark mode */
+
+[data-theme="dark"] .hero-research-note.thought-bubble,
+[data-theme="dark"] .thought-circle {
+  background: #302329;
+  border-color: #d6b67a;
+}
+
+[data-theme="dark"] .thought-bubble h3 {
+  color: #f1b5bf;
+}
+
+[data-theme="dark"] .thought-bubble p {
+  color: #e8d9d1;
+}
+
+[data-theme="dark"] .thought-link {
+  color: #d6b67a;
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .hero-research-note.thought-bubble {
+      display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-research-note.thought-bubble {
+      animation: none;
+  }
+}
+
+/* INTERACTIVE ROTATING INTERESTS */
+
+.interest-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  border: none;
+  padding: 5px 0;
+  cursor: pointer;
+  font-family: 'Playfair Display', serif;
+  font-size: inherit;
+  font-weight: 700;
+  color: var(--burgundy);
+  transition: color 0.3s ease;
+}
+
+#current-interest {
+  display: inline-block;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+#current-interest.switching {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.interest-switcher:hover {
+  color: var(--crimson);
+}
+
+.interest-arrow {
+  font-size: 1rem;
+  color: var(--gold);
+  transition: transform 0.3s ease;
+}
+
+.interest-switcher:hover .interest-arrow {
+  transform: rotate(45deg) scale(1.2);
+}
+
+.interest-switcher:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 5px;
+  border-radius: 4px;
+}

@@ -193,12 +193,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 outline.setAttribute("aria-hidden", "true");
                 outline.textContent = faizaPart;
 
-                const text = document.createElement("span");
-                text.className = "faiza-text";
-                text.textContent = faizaPart;
+                
+const text = document.createElement("span");
+text.className = "faiza-text";
 
-                wrap.append(outline, text);
-                typingName.append(wrap);
+[...faizaPart].forEach((letter) => {
+    const span = document.createElement("span");
+    span.className = "interactive-letter";
+    span.textContent = letter === " " ? "\u00A0" : letter;
+    text.appendChild(span);
+});
+
+wrap.append(text);
+typingName.append(wrap);
+
             } else {
                 typingName.textContent = currentText;
             }
@@ -313,3 +321,62 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
   
+/* INTERACTIVE INTEREST SWITCHER */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const interests = [
+      "developer 💻",
+      "data enthusiast 📊",
+      "AI explorer 🤖",
+      "creative thinker 🎨",
+      "problem solver 🧩",
+      "lifelong learner 🌱"
+  ];
+
+  const button = document.getElementById("interest-switcher");
+  const display = document.getElementById("current-interest");
+
+  if (!button || !display) return;
+
+  let index = 0;
+  let paused = false;
+  let switching = false;
+
+  function nextInterest() {
+      if (switching) return;
+
+      switching = true;
+      display.classList.add("switching");
+
+      setTimeout(() => {
+          index = (index + 1) % interests.length;
+          display.textContent = interests[index];
+          display.classList.remove("switching");
+          switching = false;
+      }, 200);
+  }
+
+  button.addEventListener("click", nextInterest);
+
+  button.addEventListener("mouseenter", () => {
+      paused = true;
+  });
+
+  button.addEventListener("mouseleave", () => {
+      paused = false;
+  });
+
+  button.addEventListener("focus", () => {
+      paused = true;
+  });
+
+  button.addEventListener("blur", () => {
+      paused = false;
+  });
+
+  setInterval(() => {
+      if (!paused && !document.hidden) {
+          nextInterest();
+      }
+  }, 2000);
+});
