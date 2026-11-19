@@ -1212,19 +1212,21 @@ html[data-theme="dark"] .paper-texture { opacity: .025; }
     justify-content: center;
     width: 44px;
     height: 44px;
-    border: 1px solid var(--gold);
+    border: 2px solid #B18A45;
     border-radius: 50%;
     color: var(--burgundy);
+    background: transparent;
     font-size: 1.5rem;
     text-decoration: none;
     transition: all 0.3s ease;
-  }
-  
-  .work-action a:hover {
-    background: var(--burgundy);
-    color: var(--cream);
-    transform: rotate(45deg);
-  }
+}
+
+.work-action a:hover {
+    background: #F1B5BF;
+    color: #650F25;
+    border-color: #B18A45;
+    transform: translate(3px, -3px);
+}
   
   /* Footer */
   .works-footer {
