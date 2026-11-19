@@ -1212,21 +1212,19 @@ html[data-theme="dark"] .paper-texture { opacity: .025; }
     justify-content: center;
     width: 44px;
     height: 44px;
-    border: 2px solid #B18A45;
+    border: 1px solid var(--gold);
     border-radius: 50%;
     color: var(--burgundy);
-    background: transparent;
     font-size: 1.5rem;
     text-decoration: none;
     transition: all 0.3s ease;
-}
-
-.work-action a:hover {
-    background: #F1B5BF;
-    color: #650F25;
-    border-color: #B18A45;
-    transform: translate(3px, -3px);
-}
+  }
+  
+  .work-action a:hover {
+    background: var(--burgundy);
+    color: var(--cream);
+    transform: rotate(45deg);
+  }
   
   /* Footer */
   .works-footer {
@@ -1823,7 +1821,13 @@ html[data-theme="dark"] .paper-texture { opacity: .025; }
 
 @media (max-width: 768px) {
   .hero-research-note.thought-bubble {
-      display: none;
+    display: block;
+    position: relative;
+    top: auto;
+    right: auto;
+    width: min(90%, 350px);
+    margin: 30px auto;
+    padding: 30px 22px;
   }
 }
 
