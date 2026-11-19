@@ -1886,32 +1886,51 @@ html[data-theme="dark"] .paper-texture { opacity: .025; }
 /* Fix Thinking Atelier bubble on mobile */
 @media (max-width: 768px) {
   #hero {
-    height: auto;
-    min-height: 100vh;
-    transform: none;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 60px 6% 120px;
+    justify-content: flex-start;
+    height: auto;
+    min-height: 100vh;
+    padding: 35px 6% 100px;
+    transform: none;
     overflow: visible;
   }
 
+  .hero-content {
+    order: 1;
+    width: 100%;
+    margin-top: 0;
+  }
+
   .hero-research-note.thought-bubble {
+    order: 2;
     display: block;
     position: relative;
     top: auto;
     right: auto;
     width: min(100%, 350px);
-    margin: 40px auto 20px;
-    flex-shrink: 0;
-  }
-
-  .hero-content {
-    width: 100%;
-    margin-top: 0;
+    margin: 45px auto 35px;
+    padding: 30px 22px;
   }
 
   .hero-marquee {
-    bottom: 0;
+    order: 3;
+    position: relative;
+    width: 100%;
+    margin-top: 30px;
+  }
+}
+/* Reduce empty space above hero on mobile */
+/* iPhone / mobile spacing only */
+/* Reduce space above intro on phones only */
+/* Fix spacing on phones only */
+@media screen and (max-width: 480px) {
+  #hero {
+    padding-top: 15px;
+  }
+
+  #hero .hero-main-content {
+    margin-top: 0;
   }
 }
