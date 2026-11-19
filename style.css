@@ -1883,3 +1883,35 @@ html[data-theme="dark"] .paper-texture { opacity: .025; }
   outline-offset: 5px;
   border-radius: 4px;
 }
+/* Fix Thinking Atelier bubble on mobile */
+@media (max-width: 768px) {
+  #hero {
+    height: auto;
+    min-height: 100vh;
+    transform: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 6% 120px;
+    overflow: visible;
+  }
+
+  .hero-research-note.thought-bubble {
+    display: block;
+    position: relative;
+    top: auto;
+    right: auto;
+    width: min(100%, 350px);
+    margin: 40px auto 20px;
+    flex-shrink: 0;
+  }
+
+  .hero-content {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .hero-marquee {
+    bottom: 0;
+  }
+}
